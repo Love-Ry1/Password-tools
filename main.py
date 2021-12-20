@@ -114,7 +114,7 @@ if __name__ == '__main__':
                 except Exception:
                     print("Invalid input")
         elif choice == 5:
-            current_pwlist = pwlist_path.split('/')     # works for this project but not water-proof...
+            current_pwlist = pwlist_path.split('/')
             print(f"Current password-list is: {current_pwlist[1]}")
             pwlist_path = "password_lists/" + choose_pwlist()
 
