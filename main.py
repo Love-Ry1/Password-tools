@@ -105,22 +105,24 @@ if __name__ == '__main__':
     nmb_of_char = 5
     pwlist_path = "password_lists/100k_common.txt"
     while True:     # main-loop
-        choice = int_question_loop("Please pick an option:\n1. Try your password against a password-list\n"
+        choice = int_question_loop("Please pick an option:\n"
+                                   "1. Set a password\n"
                                    "2. Try to bruteforce your password\n"
-                                   "3. Set password\n"
+                                   "3. Try your password against a password-list\n"
                                    "4. Set character bruteforce limit\n"
                                    "5. Set a password-list\nAnswer: ")
 
-        if password is None and not (choice == 3 or choice == 5):    # doesn't feel good
+        if password is None and not (choice == 1 or choice == 5):    # doesn't feel good
+            print("You need to set a password!")
             password = user_password()
 
         if choice == 1:
-            compare_pwlist(password, pwlist_path)
+            print(f"Current password is: {password}")
+            password = user_password()
         elif choice == 2:
             bruteforce_password(nmb_of_char, password)
         elif choice == 3:
-            print(f"Current password is: {password}")
-            password = user_password()
+            compare_pwlist(password, pwlist_path)
         elif choice == 4:
             print(f"Current limit is: {nmb_of_char}")
             nmb_of_char = int_question_loop("Up to how many characters do you want to bruteforce? ")
