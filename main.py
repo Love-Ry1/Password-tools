@@ -18,9 +18,10 @@ def time_func(function):    # wrapper function to time other functions
 
 def user_password():    # returns the password the user want to use
     while True:
-        print("Allowed characters is: a-z, A-Z, 0-9")
+        print("Allowed characters: a-z, A-Z, 0-9")
         pw = input("Enter a password: ")
         if allowed_characters(pw):
+            print("Password was successfully set!")
             return pw
 
 
@@ -117,18 +118,21 @@ if __name__ == '__main__':
             password = user_password()
 
         if choice == 1:
-            print(f"Current password is: {password}")
+            if password is None:
+                print("Current password: ")
+            else:
+                print(f"Current password: {password}")
             password = user_password()
         elif choice == 2:
             bruteforce_password(nmb_of_char, password)
         elif choice == 3:
             compare_pwlist(password, pwlist_path)
         elif choice == 4:
-            print(f"Current limit is: {nmb_of_char}")
+            print(f"Current limit: {nmb_of_char}")
             nmb_of_char = int_question_loop("Up to how many characters do you want to bruteforce? ")
         elif choice == 5:
             current_pwlist = pwlist_path.split('/')
-            print(f"Current password-list is: {current_pwlist[1]}")
+            print(f"Current password-list: {current_pwlist[1]}")
             pwlist_path = "password_lists/" + choose_pwlist()
 
 """
