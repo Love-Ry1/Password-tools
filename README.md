@@ -17,7 +17,11 @@ and tell you the time it took for it to find your password.
 
 **Try password against a list**
 
+![Animation3](https://user-images.githubusercontent.com/83970045/151408876-b536922f-cc23-4637-806f-66d2879de40b.gif)
+
+
 **Set character bruteforce limit**
 
 **Set password-list**
 
+Here you can change the password list you want to use to check the password against. To add/delete a passwordlist you need to add/delete .txt files in the folder "password_lists" which should be in the same folder as "main.py". The password lists should have words seperated by a new line.
